@@ -26,20 +26,24 @@ int is_valid_path(int path[], int num_nodes)
     return 1;
 }
 
-// verifica se o player morre e se sim volta pro começo
-int check_death(int path[], int num_nodes, int *pos){
-    if (game_path[path[num_nodes-2]][path[num_nodes-1]] != 2){ // verifica se o caminho escolhido leva à Espada da Tormenta
-        return 0;
-    }
-    
-    if(path[num_nodes-2] == 1 && path[num_nodes-1] == 3){
+// Mostra as mensagens de morte de cada caminho
+int death_msg(int orig, int dest){
+    if (orig == 2 && dest == 4){
         printf("\nEntrou na vala.");
     }
-    if(path[num_nodes-2] == 5 && path[num_nodes-1] == 7){
+    if (orig == 6 && dest == 8){
         printf("\nSeu cu ardeu.");
     }
-
     printf("\nVocê escolheu o caminho errado. Você morreu.\n");
+}
+
+int check_death(int path[], int num_nodes, int *pos){
+    if (game_path[path[num_nodes-2]][path[num_nodes-1]] != 2){ // Se o caminho não causa morte, retornar 0
+        return 0;
+    }
+
+    death_msg(path[num_nodes-2] + 1, path[num_nodes-1] + 1); // Manda as mensagens de morte usando os índices + 1, pra facilitar colocar cada caso na função
+
     printf("Voltando pro começo...\n");
     *pos = 0;
 
@@ -59,12 +63,11 @@ int main(){
     printf("O caminho pelo labirinto é complicado e você precisa escolher cuidadosamente qual caminho seguir para evitar as armadilhas e derrotar os monstros.");
     printf("Voce chegou a porta do labirinto:");
 
-    while (current_node != NUM_NODES - 1){ // enquanto não chegar à Espada da Tormenta
+    while (current_node != NUM_NODES - 1){ // Enquanto não chegar à Espada da Tormenta
         printf("\nVocê está no nó %d.\n", current_node + 1);
         printf("Para onde você quer ir?\n");
 
-        for (int i = 0; i < NUM_NODES; i++){
-            // if (game_path[current_node][i] == 1){
+        for (int i = 0; i < NUM_NODES; i++){ // Mostra os caminhos disponíveis
             if (game_path[current_node][i] != 0){
                 printf("%d. Nó %d\n", i + 1, i + 1);
             }
@@ -76,13 +79,9 @@ int main(){
             printf("Opção inválida. Tente novamente.\n");
             continue;
         }
-        if(game_path[current_node][choice-1] == 2){
-
-        }
+        
         path[nodes_in_path++] = choice - 1;
-        
         current_node = choice - 1;
-        
         check_death(path, nodes_in_path, &current_node);
     }
     printf("\nParabéns! Você encontrou a Espada da Tormenta!\n");

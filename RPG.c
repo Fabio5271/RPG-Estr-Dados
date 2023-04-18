@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // Define o número de nós no grafo
 #define NUM_NODES 8
@@ -6,27 +7,16 @@
 // Define as arestas do grafo
 int game_path[NUM_NODES][NUM_NODES] = {
     {0, 1, 0, 1, 0, 0, 0, 0},
-    {0, 0, 1, 2, 2, 0, 0, 0},
+    {1, 0, 1, 2, 2, 0, 0, 0}, //{0, 0, 1, 2, 2, 0, 0, 0}
     {0, 0, 0, 0, 0, 1, 0, 0},
     {0, 0, 0, 0, 1, 0, 1, 0},
     {0, 0, 0, 0, 0, 0, 0, 1},
     {0, 0, 0, 0, 0, 0, 0, 2},
     {0, 0, 0, 0, 2, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0}};
+    {0, 0, 0, 0, 0, 0, 0, 0}
+};
 
-// Função que verifica se o caminho escolhido pelo usuário é válido
-int is_valid_path(int path[], int num_nodes)
-{
-    int i;
-    for (i = 0; i < num_nodes - 1; i++){
-        if (game_path[path[i]][path[i + 1]] == 0){
-            return 0;
-        }
-    }
-    return 1;
-}
-
-// Mostra as mensagens de morte de cada caminho
+// Define as mensagens de morte de cada caminho
 int death_msg(int orig, int dest){
     if (orig == 2 && dest == 4){
         printf("\nEntrou na vala.");
@@ -37,23 +27,21 @@ int death_msg(int orig, int dest){
     printf("\nVocê escolheu o caminho errado. Você morreu.\n");
 }
 
-int check_death(int path[], int num_nodes, int *pos){
-    if (game_path[path[num_nodes-2]][path[num_nodes-1]] != 2){ // Se o caminho não causa morte, retornar 0
+int check_death(int path[], int num_nodes){
+    if (game_path[path[num_nodes-2]][path[num_nodes-1]] != 2){ // Verifica se o caminho escolhido não tem a relação 2 (morte)
         return 0;
     }
-
     death_msg(path[num_nodes-2] + 1, path[num_nodes-1] + 1); // Manda as mensagens de morte usando os índices + 1, pra facilitar colocar cada caso na função
-
     printf("Voltando pro começo...\n");
-    *pos = 0;
-
     return 1;
 }
 
+void prt_path(int* path, int nip);
+
 int main(){
-    int current_node = 0; // começa na entrada do labirinto
-    int path[NUM_NODES]; // armazena o caminho escolhido pelo usuário
-    int nodes_in_path = 1; // numero de nos no caminho, começa com um (a entrada)
+    int current_node = 0; // Começa na entrada do labirinto
+    int* path = malloc(sizeof(int)); // Armazena o caminho escolhido pelo usuário
+    int nodes_in_path = 1; // Número de nós no caminho, começa com um (a entrada)
     path[0] = current_node;
 
     printf("Bem-vindo ao RPG do FUSCAO\n");
@@ -80,10 +68,20 @@ int main(){
             continue;
         }
         
+        path = realloc(path, (nodes_in_path + 1)* sizeof(int)); // Aloca mais memória pros nós novos
         path[nodes_in_path++] = choice - 1;
         current_node = choice - 1;
-        check_death(path, nodes_in_path, &current_node);
+
+        // Reinicia o jogo se morrer
+        if (check_death(path, nodes_in_path) == 1){
+            current_node = 0;
+            free(path); // Reinicializar path
+            int* path = malloc(sizeof(int)); // Reinicializar path
+            path[0] = current_node; // Reinicializar path
+            nodes_in_path = 1;
+        }
     }
     printf("\nParabéns! Você encontrou a Espada da Tormenta!\n");
-    return 0;
+    free(path);
+    return EXIT_SUCCESS;
 }

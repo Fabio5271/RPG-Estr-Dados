@@ -21,19 +21,19 @@ int v_node_msg(int orig, int dest){
         printf("\nTu olha e tem um vulcâozão.");
     }
     if (orig == 3 && dest == 5){
-        printf("\n");
+        printf("\nSala de lava");
     }
     if (orig == 2 && dest == 4){
-        printf("\n");
+        printf("\nSala com mais lava");
     }
     if (orig == 3 && dest == 5){
-        printf("\n");
+        printf("\nSala pingando lava");
     }
     if (orig == 5 && dest == 7){
-        printf("\n");
+        printf("\nSala com um rio de lava");
     }
     if (orig == 7 && dest == 8){
-        printf("\n");
+        printf("\nSala com pedesdal com o amuleto");
     }
     printf("\nOque você irá fazer agora?\n");
 }
@@ -49,10 +49,10 @@ int v_death_msg(int orig, int dest){
     if (orig == 5 && dest == 6){
         printf("Um mar de lava te encobriu!\n.");
     }
-    printf("\nVocê escolheu o caminho errado. Você morreu queimado.\n");
+    printf("\nVocê escolheu o caminho errado. Você morreu.\n");
 }
 //Define mensagem de inicio
-const char* volc_start ="Você chegou na base do vulcão e precisa chegar até o seu topo para adquirir o amuleto de proteção contra o fogo!\nTome muito cuidado em seu caminho, o vulcão é um lugar perigoso e traiçoeiro! um deslize e você morre queimado! \n";
+const char* volc_start ="Você chegou na base do vulcão e precisa chegar até o centro para adquirir o amuleto do Fodase-Fogo!Tome muito cuidado em seu caminho, o vulcão é um lugar perigoso, um deslize e você morre queimado! \n";
 
 //Define mensagem de conclusão
-const char* volc_end = "\nParabéns! Você encontrou o amuleto do Fodase-Fogo!\n";
+const char* volc_end = "\nParabéns Você encontrou o amuleto do Fodase-Fogo!\n";

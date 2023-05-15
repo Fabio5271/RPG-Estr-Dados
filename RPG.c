@@ -22,7 +22,7 @@ void ep_start_msg(){
         printf(volc_start);
     }
     // if (curr_ep == 4){
-    //     printf(volc_start);
+    //     printf(drag_start);
     // }
 }
 
@@ -37,7 +37,7 @@ void ep_end_msg(){
         printf(volc_end);
     }
     // if (curr_ep == 4){
-    //     printf(volc_end);
+    //     printf(drag_end);
     // }
 }
 

@@ -4,7 +4,7 @@
 #include "labirinto.h"
 #include "montanha.h"
 #include "vulcao.h"
-// #include "dragao.h"
+#include "dragao.h"
 
 #define NUM_NODES 8
 
@@ -21,9 +21,9 @@ void ep_start_msg(){
     if (curr_ep == 3){
         printf(volc_start);
     }
-    // if (curr_ep == 4){
-    //     printf(drag_start);
-    // }
+    if (curr_ep == 4){
+        printf(drag_start);
+    }
 }
 
 void ep_end_msg(){
@@ -36,9 +36,9 @@ void ep_end_msg(){
     if (curr_ep == 3){
         printf(volc_end);
     }
-    // if (curr_ep == 4){
-    //     printf(drag_end);
-    // }
+    if (curr_ep == 4){
+        printf(drag_end);
+    }
 }
 
 void game_path_init(int ep_num){
@@ -52,9 +52,9 @@ void game_path_init(int ep_num){
         case 3:
             memcpy(game_path, volc_path, sizeof(volc_path));
             break;
-        // case 4:
-        //     memcpy(game_path, drag_path, sizeof(drag_path));
-        //     break;
+        case 4:
+            memcpy(game_path, drag_path, sizeof(drag_path));
+            break;
     }
 }
 
@@ -68,9 +68,9 @@ void death_msg(int orig, int dest){
     if (curr_ep == 3){
         v_death_msg(orig, dest);
     }
-    // if (curr_ep == 4){
-    //     d_death_msg(orig, dest);
-    // }
+    if (curr_ep == 4){
+        d_death_msg(orig, dest);
+    }
 }
 
 void node_msg(int orig, int dest){
@@ -83,9 +83,9 @@ void node_msg(int orig, int dest){
     if (curr_ep == 3){
         v_node_msg(orig, dest);
     }
-    // if (curr_ep == 4){
-    //     d_node_msg(orig, dest);
-    // }
+    if (curr_ep == 4){
+        d_node_msg(orig, dest);
+    }
 }
 
 int check_death(int path[], int num_nodes){

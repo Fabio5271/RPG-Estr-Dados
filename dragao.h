@@ -17,19 +17,22 @@ int drag_path[NUM_NODES][NUM_NODES] = {
 
 // Define as mensagens de entrada em cada local
 int d_node_msg(int orig, int dest){
-    if (orig == 1 && dest == 3){
+    if (orig == 1 && dest == 2){
         printf("\nTu olha e tem um dragão.");
     }
-    if (orig == 3 && dest == 5){
+    if (orig == 1 && dest == 3){
         printf("\nSala");
     }
     if (orig == 2 && dest == 4){
         printf("\nSala");
     }
-    if (orig == 3 && dest == 5){
+    if (orig == 2 && dest == 5){
         printf("\nSala");
     }
-    if (orig == 5 && dest == 7){
+    if (orig == 3 && dest == 6){
+        printf("\nSala");
+    }
+    if (orig == 4 && dest == 7){
         printf("\nSala");
     }
     if (orig == 7 && dest == 8){

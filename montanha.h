@@ -9,14 +9,14 @@ int mount_path[NUM_NODES][NUM_NODES] = {
     {0, 0, 0, 1, 1, 0, 0, 0},
     {0, 0, 0, 0, 2, 0, 0, 0},
     {0, 0, 0, 0, 0, 2, 0, 0},
-    {0, 0, 0, 0, 0, 1, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 1}, // O grafo é menor, então pula pro nó 8, que funciona como se fosse o 6
     {0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0},
 };
 
 // Define as mensagens de entrada em cada local
-int node_msg(int orig, int dest){
+int m_node_msg(int orig, int dest){
     if (orig == 1 && dest == 2){
         printf("\nTu olha e tem um montanhão.");
     }
@@ -36,7 +36,7 @@ int node_msg(int orig, int dest){
 }
 
 // Mostra as mensagens de morte de cada caminho
-int death_msg(int orig, int dest){
+int m_death_msg(int orig, int dest){
     if (orig == 3 && dest == 5){
         printf("\nUma avalanche te engoliu.");
     }

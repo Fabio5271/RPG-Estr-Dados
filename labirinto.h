@@ -17,7 +17,7 @@ int labr_path[NUM_NODES][NUM_NODES] = {
 };
 
 // Define as mensagens de entrada em cada local
-int node_msg(int orig, int dest){
+void l_node_msg(int orig, int dest){
     if (orig == 1 && dest == 2){
         printf("\nVocê entrou em uma sala escura. Fique atento!");
     }
@@ -43,7 +43,7 @@ int node_msg(int orig, int dest){
 }
 
 // Define as mensagens de morte de cada caminho
-int death_msg(int orig, int dest){
+void l_death_msg(int orig, int dest){
     if (orig == 2 && dest == 4){
         printf("\nTropeçou e caiu sentado na pica.");
     }

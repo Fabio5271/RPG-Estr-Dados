@@ -16,7 +16,7 @@ int vulc_path[NUM_NODES][NUM_NODES] = {
 };
 
 // Define as mensagens de entrada em cada local
-int node_msg(int orig, int dest){
+int d_node_msg(int orig, int dest){
     if (orig == 1 && dest == 3){
         printf("\nTu olha e tem um vulcâozão.");
     }
@@ -39,7 +39,7 @@ int node_msg(int orig, int dest){
 }
 
 // Mostra as mensagens de morte de cada caminho
-int death_msg(int orig, int dest){
+int d_death_msg(int orig, int dest){
     if (orig == 1 && dest == 2){
         printf("Você pisou em falso e caiu na lava!\n");
     }

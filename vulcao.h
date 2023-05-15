@@ -4,7 +4,7 @@
 #define NUM_NODES 8
 
 // Define as arestas do grafo
-int vulc_path[NUM_NODES][NUM_NODES] = {
+int volc_path[NUM_NODES][NUM_NODES] = {
     {0, 2, 1, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 2, 1, 0, 0, 0},
@@ -16,7 +16,7 @@ int vulc_path[NUM_NODES][NUM_NODES] = {
 };
 
 // Define as mensagens de entrada em cada local
-int node_msg(int orig, int dest){
+int v_node_msg(int orig, int dest){
     if (orig == 1 && dest == 3){
         printf("\nTu olha e tem um vulcâozão.");
     }
@@ -39,7 +39,7 @@ int node_msg(int orig, int dest){
 }
 
 // Mostra as mensagens de morte de cada caminho
-int death_msg(int orig, int dest){
+int v_death_msg(int orig, int dest){
     if (orig == 1 && dest == 2){
         printf("Você pisou em falso e caiu na lava!\n");
     }
@@ -55,4 +55,4 @@ int death_msg(int orig, int dest){
 const char* volc_start ="Você chegou na base do vulcão e precisa chegar até o seu topo para adquirir o amuleto de proteção contra o fogo!\nTome muito cuidado em seu caminho, o vulcão é um lugar perigoso e traiçoeiro! um deslize e você morre queimado! \n";
 
 //Define mensagem de conclusão
-const char* volc_end = "\nParabéns!Você encontrou o amuleto do Fodase-Fogo!\n";
+const char* volc_end = "\nParabéns! Você encontrou o amuleto do Fodase-Fogo!\n";

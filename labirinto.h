@@ -17,7 +17,7 @@ int labr_path[NUM_NODES][NUM_NODES] = {
 };
 
 // Define as mensagens de entrada em cada local
-int node_msg(int orig, int dest){
+int l_node_msg(int orig, int dest){
     if (orig == 1 && dest == 2){
         printf("\nVocê caminha pelo corredor escuro, mas logo avista uma luz brilhante no fim do túnel. Conforme você se aproxima, a luz se torna mais forte e você se depara com uma sala circular, com pilares de pedra esculpidos e um teto curvado.");
     }
@@ -43,7 +43,7 @@ int node_msg(int orig, int dest){
 }
 
 // Define as mensagens de morte de cada caminho
-int death_msg(int orig, int dest){
+int l_death_msg(int orig, int dest){
     if (orig == 2 && dest == 4){
         printf("\nAo entrar nesta sala, você se depara com um chão coberto de musgo. Quando você pisa no musgo, ele se revela escorregadio e suas pernas são puxadas para baixo, fazendo com que você caia em um buraco profundo e escuro. Você tenta se segurar, mas é tarde demais e você acaba caindo em um abismo sem fim.");
     }

@@ -36,23 +36,40 @@ int l_node_msg(int node){
     if (node == 7){
         printf("\nVocê escolhe a passagem à esquerda e segue em frente, descendo uma série de degraus íngremes. Você emerge em uma caverna escura e úmida, com paredes de pedra cobertas de musgo. Há um brilho fraco que vem de uma passagem estreita na parede à sua frente.\n");
     }
-
     printf("\nO que você irá fazer agora?\n");
+}
+
+char* l_node_preview(int orig, int next_node){
+    if (orig == 2 && next_node == 4){
+       return "Teste24 1";
+    }
+    if (orig == 2 && next_node == 5){
+        return "Teste25 1";
+    }
+    if (orig == 7 && next_node == 5){
+        return "Teste75 1";
+    }
+    if (orig == 6 && next_node == 8){
+        return "Teste68 1";
+    }
+    else {
+        return "A definir";
+    }
 }
 
 // Define as mensagens de morte de cada caminho
 int l_death_msg(int orig, int dest){
     if (orig == 2 && dest == 4){
-        printf("\nAo entrar nesta sala, você se depara com um chão coberto de musgo. Quando você pisa no musgo, ele se revela escorregadio e suas pernas são puxadas para baixo, fazendo com que você caia em um buraco profundo e escuro. Você tenta se segurar, mas é tarde demais e você acaba caindo em um abismo sem fim.");
+        printf("\nAo entrar nesta sala, você se depara com um chão coberto de musgo. Quando você pisa no musgo, ele se revela escorregadio e suas pernas são puxadas para baixo, fazendo com que você caia em um buraco profundo e escuro. Você tenta se segurar, mas é tarde demais e você acaba caindo em um abismo sem fim.\n");
     }
     if (orig == 2 && dest == 5){
-        printf("\nAssim que você entra na sala, você sente um cheiro estranho no ar. Você olha para cima e vê uma nuvem de gás venenoso se aproximando rapidamente. Você tenta correr para a porta oposta, mas a nuvem já está sobre você. Você começa a tossir e a sentir uma dor intensa em seus pulmões, até que finalmente desmaia.");
+        printf("\nAssim que você entra na sala, você sente um cheiro estranho no ar. Você olha para cima e vê uma nuvem de gás venenoso se aproximando rapidamente. Você tenta correr para a porta oposta, mas a nuvem já está sobre você. Você começa a tossir e a sentir uma dor intensa em seus pulmões, até que finalmente desmaia.\n");
     }
     if (orig == 7 && dest == 5){
-        printf("\nAo entrar na sala, você sente um arrepio percorrer sua espinha. A luz é fraca e mal ilumina os cantos escuros da sala. Ao avançar, você escuta um sussurro que parece vir de todos os lados. O ar fica pesado e a sua respiração começa a ficar difícil. De repente, você se vê cercado por uma densa neblina negra, que torna impossível enxergar qualquer coisa. Enquanto você tenta encontrar uma saída, as vozes sussurrantes se transformam em gritos ensurdecedores. Seus ouvidos doem e sua cabeça começa a latejar até que finalmente, em meio ao caos, você perde a consciência");
+        printf("\nAo entrar na sala, você sente um arrepio percorrer sua espinha. A luz é fraca e mal ilumina os cantos escuros da sala. Ao avançar, você escuta um sussurro que parece vir de todos os lados. O ar fica pesado e a sua respiração começa a ficar difícil. De repente, você se vê cercado por uma densa neblina negra, que torna impossível enxergar qualquer coisa. Enquanto você tenta encontrar uma saída, as vozes sussurrantes se transformam em gritos ensurdecedores. Seus ouvidos doem e sua cabeça começa a latejar até que finalmente, em meio ao caos, você perde a consciência\n");
     }
     if (orig == 6 && dest == 8){
-        printf("\nQuando você entra na sala, percebe que ela está inundada até o teto. Você tenta nadar até a porta oposta, mas a correnteza é forte e você é arrastado para baixo. Você luta contra a água, mas logo percebe que é inútil e acaba afundando para a morte.");
+        printf("\nQuando você entra na sala, percebe que ela está inundada até o teto. Você tenta nadar até a porta oposta, mas a correnteza é forte e você é arrastado para baixo. Você luta contra a água, mas logo percebe que é inútil e acaba afundando para a morte.\n");
     }
     printf("\nVocê escolheu o caminho errado. Você morreu.\n");
 }

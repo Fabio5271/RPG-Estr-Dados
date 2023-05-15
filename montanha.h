@@ -33,13 +33,31 @@ int m_node_msg(int node){
     printf("\nOque você irá fazer agora?\n");
 }
 
+char* m_node_preview(int orig, int next_node){
+    if (orig == 1 && next_node == 2){
+       return "Teste12 2";
+    }
+    if (orig == 1 && next_node == 3){
+        return "Teste13 2";
+    }
+    if (orig == 2 && next_node == 4){
+        return "Teste24 2";
+    }
+    if (orig == 2 && next_node == 5){
+        return "Teste25 2";
+    }
+    else {
+        return "A definir";
+    }
+}
+
 // Mostra as mensagens de morte de cada caminho
 int m_death_msg(int orig, int dest){
     if (orig == 3 && dest == 5){
-        printf("\nVocê se move pela trilha e ouve um rugido vindo de um ponto mais adiante. Você aperta a espada e se prepara para o que está por vir. Quando você chega mais perto, um troll aparece em sua frente. Com um rugido, ele ataca,você luta bravamente, mas acaba sendo derrotado.");
+        printf("\nVocê se move pela trilha e ouve um rugido vindo de um ponto mais adiante. Você aperta a espada e se prepara para o que está por vir. Quando você chega mais perto, um troll aparece em sua frente. Com um rugido, ele ataca,você luta bravamente, mas acaba sendo derrotado.\n");
     }
     if (orig == 4 && dest == 8){
-        printf("\nVocê continua a subir a montanha, mas percebe que a rocha está ficando cada vez mais instável. De repente, um pedaço da rocha se solta, fazendo com que você perca o equilíbrio. Você tenta se agarrar a algo, mas não consegue, e acaba caindo para a morte.");
+        printf("\nVocê continua a subir a montanha, mas percebe que a rocha está ficando cada vez mais instável. De repente, um pedaço da rocha se solta, fazendo com que você perca o equilíbrio. Você tenta se agarrar a algo, mas não consegue, e acaba caindo para a morte.\n");
     }
     printf("\nVocê escolheu o caminho errado. Você morreu.\n");
 }

@@ -38,6 +38,15 @@ int d_node_msg(int node){
     printf("\nOque você irá fazer agora?\n");
 }
 
+char* d_node_preview(int orig, int next_node){
+    if (orig == 1 && next_node == 2){
+       return "Teste12 4";
+    }
+    else {
+        return "A definir";
+    }
+}
+
 // Mostra as mensagens de morte de cada caminho
 int d_death_msg(int orig, int dest){
     if (orig == 5 && dest == 8){

@@ -92,6 +92,21 @@ void node_msg(int orig){
     }
 }
 
+char* node_preview(int orig, int next_node){
+    if (curr_ep == 1){
+        return l_node_preview(orig, next_node);
+    }
+    if (curr_ep == 2){
+        return m_node_preview(orig, next_node);
+    }
+    if (curr_ep == 3){
+        return v_node_preview(orig, next_node);
+    }
+    if (curr_ep == 4){
+        return d_node_preview(orig, next_node);
+    }
+}
+
 int check_death(int path[], int num_nodes){
     if (game_path[path[num_nodes - 2]][path[num_nodes - 1]] != 2){ // Verifica se o caminho escolhido não tem a relação 2 (morte)
         return 0;
@@ -124,7 +139,7 @@ int main(){
             // Mostra os caminhos disponíveis
             for (int i = 0; i < NUM_NODES; i++) {
                 if (game_path[current_node][i] != 0) {
-                    printf("%d. Nó %d\n", i + 1, i + 1);
+                    printf("%d. Nó %d:%s\n", i + 1, i + 1, node_preview(current_node + 1, i + 1));
                 }
             }
 

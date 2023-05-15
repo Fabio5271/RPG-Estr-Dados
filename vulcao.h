@@ -36,6 +36,15 @@ int v_node_msg(int node){
     printf("\nOque você irá fazer agora?\n");
 }
 
+char* v_node_preview(int orig, int next_node){
+    if (orig == 1 && next_node == 3){
+       return "Teste13 3";
+    }
+    else {
+        return "A definir";
+    }
+}
+
 // Mostra as mensagens de morte de cada caminho
 int v_death_msg(int orig, int dest){
     if (orig == 1 && dest == 2){

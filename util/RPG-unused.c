@@ -47,7 +47,11 @@ void prt_path(int* path, int nip){
 }
 /* no main:
 if (choice == 9){
-            prt_path(path, nodes_in_path);
-            current_node = path[nodes_in_path - 2];
-        }
+    prt_path(path, nodes_in_path);
+    current_node = path[nodes_in_path - 2];
+}
+
+printf("%d. Nó %d:", i + 1, i + 1);
+node_preview(current_node + 1, i + 1);
+printf("\n");
 */

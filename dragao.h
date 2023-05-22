@@ -38,6 +38,7 @@ int d_node_msg(int node){
     printf("\nOque você irá fazer agora?\n");
 }
 
+// Define as prévias de cada movimento
 char* d_node_preview(int orig, int next_node){
     if (orig == 1 && next_node == 2){
        return "Teste12 4";

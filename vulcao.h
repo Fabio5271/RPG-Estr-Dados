@@ -36,9 +36,13 @@ int v_node_msg(int node){
     printf("\nOque você irá fazer agora?\n");
 }
 
+// Define as prévias de cada movimento
 char* v_node_preview(int orig, int next_node){
+    if (orig == 1 && next_node == 2){
+       return "Pegar um atalho em volta do lago de lava";
+    }
     if (orig == 1 && next_node == 3){
-       return "Teste13 3";
+       return "Começar a trilha longa até o vulcão";
     }
     else {
         return "A definir";

@@ -27,7 +27,7 @@ int l_node_msg(int node){
         printf("\nVocê entra na porta e encontra uma segunda sala vazia com uma saída do outro lado e outra porta. A porta é esculpida em madeira escura, com entalhes intrincados que parecem contar uma história antiga e esquecida. Você segue em frente e entra em um corredor estreito, iluminado por tochas que piscam na escuridão.\n");
     }
     if (node == 6){
-        printf("\nVocê segue pelo corredor estreito até chegar a uma escada íngreme que leva a uma sala oval, com paredes de pedra esculpidas com padrões complexos. Há uma luz suave que emana de uma fonte brilhante no centro da sala, que parece emitir um zumbido suave.\n");
+        printf("\nVocê segue pelo corredor estreito até chegar a uma escada íngreme que leva a uma sala oval, com paredes de pedra esculpidas com padrões complexos. Há uma luz suave que emana de uma fonte brilhante no centro da sala, que parece emitir um zumbido suave. Pelo reflexo da fonte você vê ao que parece uma sala com um pedestal no centro com uma espada brilante.\n");
     }
     if (node == 5){
         printf("\nVocê segue pela escada, até que encontra a porta de ferro enferrujada. Com um empurrão forte, a porta se abre, revelando uma sala ampla e escura com um brilho fraco vindo de uma abertura no teto. Você segue em frente, passando por pilares altos e chegando a um corredor estreito e sinuoso.\n");
@@ -41,37 +41,37 @@ int l_node_msg(int node){
 // Define as prévias de cada movimento
 char* l_node_preview(int orig, int next_node){
     if (orig == 1 && next_node == 2){
-       return "Um corredor escuro e longo...";
+       return "Seguir pelo corredor escuro e longo...";
     }
     if (orig == 1 && next_node == 4){
-       return "Uma passagem com uma escada para baixo...";
+       return "Seguir por uma passagem com uma escada para baixo...";
     }
     if (orig == 2 && next_node == 3){
-       return "Uma porta escura e com desenhos bizarros na direita da sala...";
+       return "Entrar pela porta escura e com desenhos bizarros na direita da sala...";
     }
     if (orig == 2 && next_node == 4){//morre
-       return "Uma fresta na direita da sala circular atras de uma pedra, como se fosse uma passagem...";
+       return "Seguir pela fresta na direita da sala circular atras de uma pedra, como se fosse uma passagem...";
     }
     if (orig == 2 && next_node == 5){//morre
-        return "Uma porta velha e surrada com um cheiro peculiar...";
+        return "Entrar pela porta velha e surrada com um cheiro peculiar...";
     }
     if (orig == 3 && next_node == 6){
-        return "Você aceita a escuridão e continua em frente...";
+        return "Aceitar a escuridão e continua em frente...";
     }
     if (orig == 4 && next_node == 5){
-       return "No fim da sala existe um alçapão com uma escada para baixo...";
+       return "Entrar em um alçapão com uma escada para baixo...";
     }
     if (orig == 4 && next_node == 7){
-       return "Você vê um corredor iluminado na esquerda da sala...";
+       return "Seguir por um corredor iluminado na esquerda da sala...";
     }
     if (orig == 7 && next_node == 5){//morre
-       return "Você segue pela passagem estreita...";
+       return "Seguir pela passagem estreita...";
     }
     if (orig == 6 && next_node == 8){//morre
-        return "Pelo reflexo da fonte você vê ao que parece uma sala com um pedestal no centro com uma espada brilante,você encosta na agua zumbindo... ";
+        return "Encostar na agua zumbindo... ";
     }
     if (orig == 5 && next_node == 8){
-       return "Você percebe neste corredor runas antigas brilhando na parede e decide encostar nelas...";
+       return "Encostar em runas antigas brilhando na parede do corredor...";
     }
     else {
         return "A definir";

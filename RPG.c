@@ -133,18 +133,23 @@ int main(){
 
         // Enquanto não chegar no objetivo
         while (current_node != NUM_NODES - 1) {
-            printf("\nVocê está no nó %d.\n", current_node + 1);
+            // printf("\nVocê está no nó %d.\n", current_node + 1); // Usado para debug
             node_msg(current_node + 1);
 
             // Mostra os caminhos disponíveis
+            int* avail_nodes; int ii = 0;
             for (int i = 0; i < NUM_NODES; i++) {
                 if (game_path[current_node][i] != 0) {
-                    printf("%d. Nó %d:%s\n", i + 1, i + 1, node_preview(current_node + 1, i + 1));
+                    avail_nodes[ii] = i+1;
+                    printf("%d: %s\n", ii+1, node_preview(current_node + 1, i + 1));
+                    ii++;
+                    // printf("%d: %s\n", i + 1, node_preview(current_node + 1, i + 1));
                 }
             }
 
-            int choice;
-            scanf("%d", &choice);
+            int fake_choice;
+            scanf("%d", &fake_choice);
+            int choice = avail_nodes[fake_choice-1];
             if (choice < 1 || choice > NUM_NODES || game_path[current_node][choice - 1] == 0) {
                 printf("Opção inválida. Tente novamente.\n");
                 continue;

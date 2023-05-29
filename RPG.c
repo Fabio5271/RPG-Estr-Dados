@@ -123,7 +123,7 @@ int main(){
         "\nO primeiro item que você precisa é a Espada da Tormenta. Dizem que ela esta dentro de labirinto perigoso, que é cheio de armadilhas mortais e monstros hostis.\n"
         "\nO caminho pelo labirinto é complicado e você precisa escolher cuidadosamente qual caminho seguir para evitar as armadilhas e derrotar os monstros. Boa sorte!\n");
 
-    while (curr_ep < 4){ 
+    while (curr_ep <= 4){ 
         ep_start_msg();
         game_path_init(curr_ep);
         int current_node = 0;            // Começa na entrada do labirinto

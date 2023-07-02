@@ -16,7 +16,7 @@ int drag_path[NUM_NODES][NUM_NODES] = {
 };
 
 // Define as mensagens de entrada em cada local
-int d_node_msg(int node){
+void d_node_msg(int node){
     if (node == 3){
         printf("\nO dragão ruge de dor e se aproxima, cuspindo fogo em sua direção. Você usa seu escudo-congelado que o protege,mas derrete logo apos e se prepara para o próximo ataque.\n");
     }
@@ -100,7 +100,7 @@ char* d_node_preview(int orig, int next_node){
 }
 
 // Mostra as mensagens de morte de cada caminho
-int d_death_msg(int orig, int dest){
+void d_death_msg(int orig, int dest){
     if (orig == 1 && dest == 2){
         printf("\nO dragão estende suas garras afiadas em sua direção, rasgando seu corpo e encerrando sua jornada.");
     }

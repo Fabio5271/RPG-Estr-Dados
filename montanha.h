@@ -16,7 +16,7 @@ int mount_path[NUM_NODES][NUM_NODES] = {
 };
 
 // Define as mensagens de entrada em cada local
-int m_node_msg(int node){
+void m_node_msg(int node){
     if (node == 2){
         printf("\nVocê segue por um caminho antigo, quase inperceptivel, com resquicios de fogueiras e antigos acampamentos. O caminho é estreito e a rocha é lisa ao toque, mas você não se amedronta.\n");
     }
@@ -62,7 +62,7 @@ char* m_node_preview(int orig, int next_node){
 }
 
 // Mostra as mensagens de morte de cada caminho
-int m_death_msg(int orig, int dest){
+void m_death_msg(int orig, int dest){
     if (orig == 3 && dest == 5){
         printf("\nVocê aperta a espada e se prepara para o que está por vir. Quando você chega mais perto, um troll aparece em sua frente. Com um rugido, ele ataca. Você luta bravamente, mas acaba sendo derrotado.\n");
     }

@@ -16,7 +16,7 @@ int volc_path[NUM_NODES][NUM_NODES] = {
 };
 
 // Define as mensagens de entrada em cada local
-int v_node_msg(int node){
+void v_node_msg(int node){
     if (node == 3){
         printf("\nAo entrar você é imediatamente envolvido por um calor intenso e pelo brilho da lava borbulhante que flui ao redor. As paredes irregulares são formadas por rochas vulcânicas, emanando um brilho avermelhado. A câmara é preenchida com ruídos inquietantes, o som constante da lava fervente e ocasionalmente um rugido abafado ecoa pelas profundezas. Pontes estreitas e instáveis cruzam os rios de lava, exigindo habilidade e equilíbrio para atravessar.\n");
     }
@@ -61,7 +61,7 @@ char* v_node_preview(int orig, int next_node){
 }
 
 // Mostra as mensagens de morte de cada caminho
-int v_death_msg(int orig, int dest){
+void v_death_msg(int orig, int dest){
     if (orig == 1 && dest == 2){
         printf("\nVocê escoregou e caiu na lava!\n");
     }

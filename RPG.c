@@ -13,35 +13,35 @@ int curr_ep = 1;
 
 void ep_start_msg(){
     if (curr_ep == 1){
-        printf(labr_start);
+        printf("%s",labr_start);
     }
     if (curr_ep == 2){
-        printf(mount_start);
+        printf("%s",mount_start);
     }
     if (curr_ep == 3){
-        printf(volc_start);
+        printf("%s",volc_start);
     }
     if (curr_ep == 4){
-        printf(drag_start);
+        printf("%s",drag_start);
     }
 }
 
 void ep_end_msg(){
     if (curr_ep == 1){
-        printf(l_end_node_msg);
-        printf(labr_end);
+        printf("%s",l_end_node_msg);
+        printf("%s",labr_end);
     }
     if (curr_ep == 2){
-        printf(m_end_node_msg);
-        printf(mount_end);
+        printf("%s",m_end_node_msg);
+        printf("%s",mount_end);
     }
     if (curr_ep == 3){
-        printf(v_end_node_msg);
-        printf(volc_end);
+        printf("%s",v_end_node_msg);
+        printf("%s",volc_end);
     }
     if (curr_ep == 4){
-        printf(d_end_node_msg);
-        printf(drag_end);
+        printf("%s",d_end_node_msg);
+        printf("%s",drag_end);
     }
 }
 
@@ -116,6 +116,8 @@ int check_death(int path[], int num_nodes){
     return 1;
 }
 
+void show_nd (int curr_nd);
+
 int main(){
     printf("Bem-vindo ao RPG do FUSCAO\n"
         "\nVocê é um herói destemido que recebe uma missão do grande sábio da sua terra: matar um terrível dragão que aterroriza o reino.\n"
@@ -123,7 +125,7 @@ int main(){
         "\nO primeiro item que você precisa é a Espada da Tormenta. Dizem que ela esta dentro de labirinto perigoso, que é cheio de armadilhas mortais e monstros hostis.\n"
         "\nO caminho pelo labirinto é complicado e você precisa escolher cuidadosamente qual caminho seguir para evitar as armadilhas e derrotar os monstros. Boa sorte!\n");
 
-    while (curr_ep < 4){ 
+    while (curr_ep <= 4){ 
         ep_start_msg();
         game_path_init(curr_ep);
         int current_node = 0;            // Começa na entrada do labirinto
@@ -133,18 +135,23 @@ int main(){
 
         // Enquanto não chegar no objetivo
         while (current_node != NUM_NODES - 1) {
-            printf("\nVocê está no nó %d.\n", current_node + 1);
+            // show_nd(current_node); // Usado para debug
             node_msg(current_node + 1);
 
             // Mostra os caminhos disponíveis
+            int avail_nodes[NUM_NODES]; int ii = 0;
             for (int i = 0; i < NUM_NODES; i++) {
                 if (game_path[current_node][i] != 0) {
-                    printf("%d. Nó %d:%s\n", i + 1, i + 1, node_preview(current_node + 1, i + 1));
+                    avail_nodes[ii] = i+1;
+                    printf("%d: %s\n", ii+1, node_preview(current_node + 1, i + 1));
+                    ii++;
                 }
             }
 
-            int choice;
-            scanf("%d", &choice);
+            // Pergunta qual escolha o jogador vai fazer
+            int fake_choice;
+            scanf("%d", &fake_choice);
+            int choice = avail_nodes[fake_choice-1];
             if (choice < 1 || choice > NUM_NODES || game_path[current_node][choice - 1] == 0) {
                 printf("Opção inválida. Tente novamente.\n");
                 continue;
@@ -155,13 +162,13 @@ int main(){
             path[nodes_in_path++] = choice - 1;
             current_node = choice - 1;
 
-            // Reinicia o jogo se morrer
+            // Reinicia o episódio se morrer
             if (check_death(path, nodes_in_path) == 1) {
                 current_node = 0;
                 free(path);                      // Reinicializar path
                 int *path = malloc(sizeof(int)); // Reinicializar path
                 path[0] = current_node;          // Reinicializar path
-                nodes_in_path = 1;
+                nodes_in_path = 1;               // Reinicializar path
             }
         }
         ep_end_msg();
@@ -170,4 +177,8 @@ int main(){
     }
     printf("\nParabéns! Você terminou o jogo!\n");
     return EXIT_SUCCESS;
+}
+
+void show_nd (int curr_nd){
+    printf("\nVocê está no nó %d.\n", curr_nd + 1);
 }
